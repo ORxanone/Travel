@@ -5,7 +5,7 @@ import Footer from "~/components/Footer/Tour";
 export default function HomePage() {
   return (
     <main className="">
-      <Footer></Footer>
+      <Footer/>
      
     </main>
   );

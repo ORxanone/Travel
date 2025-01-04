@@ -1,14 +1,28 @@
 import React from 'react'
 import Footersosial from './Footersosial'
 import Image from 'next/image'
+import Quicklinks from './Quicklinks'
+import Contact from './Contact'
+import Copyright from './Copyright'
 const Footer = () => {
   return (
     <div className='bg-[#115779] h-[463] '>
-       <Image src="/Footerlogo.png" alt="Footerlogo" />
-       <p className='mt-6 w-[430] text-[#E3E3E3]'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standa</p>
-       <a href="#" className=' text-[#D99528] mt-8 block'>Read More</a>
-       <hr className='w-[373] mt-3'/>
-       <Footersosial/>
+      <div className='flex justify-evenly pt-10'>
+        <div>
+          <Image src="/Footerlogo.png" alt="Footerlogo" width={180.44} height={48} />
+          <p className='mt-6 w-[430] text-[#E3E3E3]'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standa</p>
+          <a href="#" className=' text-[#D99528] mt-9 block'>Read More</a>
+          <hr className='w-[373] mt-3 mb-3' />
+          <Footersosial/>
+        </div>
+        <div>
+          <Quicklinks />
+        </div>
+        <div>
+          <Contact />
+        </div>
+      </div>
+      <Copyright/>
     </div>
   )
 }
