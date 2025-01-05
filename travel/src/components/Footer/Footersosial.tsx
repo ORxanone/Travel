@@ -1,17 +1,21 @@
-import React from 'react'
-import { Facebook } from 'lucide-react';
-import { Twitter } from 'lucide-react';
-import { Linkedin } from 'lucide-react';
-import { Instagram } from 'lucide-react';
-const Footersosial = () => {
-  return (
-    <div className='flex gap-2'>
-        <Facebook/>
-        <Twitter/>
-        <Linkedin />
-        <Instagram />
-    </div>
-  )
-}
+import React from 'react';
+import { Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
 
-export default Footersosial
+const Footersosial = () => {
+  const iconProps = {
+    size: 20,
+    className: "text-gray-200 hover:text-gray-400 transition-colors cursor-pointer",
+    strokeWidth: 1.5
+  };
+
+  return (
+    <div className="flex items-center gap-3 sm:gap-4">
+      <Facebook {...iconProps} />
+      <Twitter {...iconProps} />
+      <Linkedin {...iconProps} />
+      <Instagram {...iconProps} />
+    </div>
+  );
+};
+
+export default Footersosial;
