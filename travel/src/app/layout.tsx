@@ -3,6 +3,7 @@ import "~/styles/globals.css";
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 import Header from "~/components/header";
+import Footer from "~/components/Footer/Tour";
 
 export const metadata: Metadata = {
   title: "Travel Pro",
@@ -19,11 +20,9 @@ export default function RootLayout({
         <main>
           <Header />
           {children}
-          {/* <Footer /> */}
+          <Footer />
         </main>
       </body>
     </html>
   );
 }
-
-
