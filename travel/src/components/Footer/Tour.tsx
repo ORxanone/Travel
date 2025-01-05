@@ -1,32 +1,56 @@
-import React from 'react'
-import Footersosial from './Footersosial'
-import Image from 'next/image'
-import Quicklinks from './Quicklinks'
-import Contact from './Contact'
-import Copyright from './Copyright'
-import Link from 'next/link'
+import React from 'react';
+import Footersosial from './Footersosial';
+import Image from 'next/image';
+import Quicklinks from './Quicklinks';
+import Contact from './Contact';
+import Copyright from './Copyright';
+import Link from 'next/link';
 
 const Footer = () => {
   return (
-    <div className='bg-[#115779] h-[463] '>
-      <div className='flex justify-evenly pt-10'>
-        <div>
-          <Image src="/Footerlogo.png" alt="Footerlogo" width={180.44} height={48} />
-          <p className='mt-6 text-[#E3E3E3]'>Lorem Ipsum is simply dummy text of the printing <br /> and typesetting industry. Lorem Ipsum has been <br /> the industry&aposs standa</p>
-          <Link href="#" className=' text-[#D99528] mt-9 block'>Read More</Link>
-          <hr className='w-[373] mt-3 mb-3' />
-          <Footersosial/>
-        </div>
-        <div>
-          <Quicklinks />
-        </div>
-        <div>
-          <Contact />
+    <div className="bg-sky-800 w-full min-h-[300px] sm:min-h-[463px]">
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col sm:flex-row justify-between gap-10 pt-8 sm:pt-10">
+
+          <div className="w-full sm:w-1/3 flex flex-col items-center sm:items-start">
+            <Image
+              src="/Footerlogo.png"
+              alt="Footerlogo"
+              width={180.44}
+              height={48}
+              className="w-auto h-auto"
+            />
+            <p className="mt-4 sm:mt-6 text-gray-200 text-sm sm:text-base text-center sm:text-left">
+              Lorem Ipsum is simply dummy text of the printing
+              and typesetting industry. Lorem Ipsum has been
+              the industry&apos;s standa
+            </p>
+            <Link
+              href="#"
+              className="text-amber-500 hover:text-amber-400 mt-6 sm:mt-9 block transition-colors"
+            >
+              Read More
+            </Link>
+            <hr className="w-full max-[1080px]:opacity-0 sm:w-[373px] mt-3 mb-3" />
+            <Footersosial />
+          </div>
+
+
+          <div className="w-full sm:w-1/3 flex justify-center">
+            <Quicklinks />
+          </div>
+
+
+          <div className="w-full sm:w-1/3 flex justify-center">
+            <Contact />
+          </div>
         </div>
       </div>
-      <Copyright/>
-    </div>
-  )
-}
 
-export default Footer
+
+      <Copyright />
+    </div>
+  );
+};
+
+export default Footer;
