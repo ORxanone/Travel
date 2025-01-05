@@ -6,6 +6,8 @@ import React, { useState } from "react";
 import logo from "public/gaiaLogo.png";
 import { Button } from "~/components/ui/button";
 import SidebarIcon from "../icons/SidebarIcon";
+import SidebarMenu from "./SidebarMenu";
+import Sidebar from "./Sidebar";
 
 const Header = () => {
   const [sidebar, setSidebar] = useState<boolean>(true);
@@ -54,13 +56,14 @@ const Header = () => {
         </nav>
         <div className="hidden items-center gap-16 max-lg:flex">
           <Button
-            aria-label="glassgroup"
-            className="bg-blue-black hidden h-[56px] w-[56px] rounded-full max-lg:block"
+            aria-label="travel"
+            className="hidden h-[56px] w-[56px] rounded-full max-lg:block"
             onClick={toggleSidebar}
           >
             <SidebarIcon />
           </Button>
         </div>
+        <Sidebar hidden={sidebar} toggle={toggleSidebar} />
       </div>
     </header>
   );
