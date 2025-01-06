@@ -73,7 +73,7 @@ const SidebarMenu = () => {
         <div key={key} className="mb-2">
           <button
             onClick={() => toggleMenu(key)}
-            className="flex justify-between w-full text-left text-lg font-medium p-2 hover:bg-gray-200"
+            className="flex justify-between w-full text-left text-lg duration-300 overflow-auto font-medium p-2 hover:bg-gray-200"
           >
             {item.title}
             {item.children && (
