@@ -1,4 +1,5 @@
 import AboutSection from "~/components/home/AboutSection";
+import PopularDestinations from "~/components/home/Destination";
 import HeroCarusel from "~/components/home/HeroCarusel";
 import OurPackageSection from "~/components/home/OurPackageSection";
 import WhyChooseUs from "~/components/home/WhyChooseUs";
@@ -28,6 +29,7 @@ export default function HomePage() {
         libero perspiciatis cumque eius animi hic sequi harum?"
       />
       <OurPackageSection />
+      <PopularDestinations />
       <WhyChooseUs />
     </main>
   );
