@@ -1,12 +1,8 @@
 import React from "react";
-import CustomPagination from "~/components/customs/Pagination";
+import Tours from "~/components/tours";
 
 const page = () => {
-  return (
-    <div>
-      <CustomPagination />
-    </div>
-  );
+  return <Tours />;
 };
 
 export default page;

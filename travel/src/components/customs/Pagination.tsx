@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import {
   Pagination,
@@ -13,12 +14,12 @@ const CustomPagination = ({
   totalCount = 100,
   currentPage = 1,
   pageSize = 5,
-  onPageChange = (number: number) => {},
+  onPageChange,
 }: {
   totalCount?: number;
   currentPage?: number;
   pageSize?: number;
-  onPageChange?: (page: number) => void;
+  onPageChange: any;
 }) => {
   const totalPages = Math.ceil(totalCount / pageSize);
 
@@ -67,7 +68,7 @@ const CustomPagination = ({
 
         {pageNumbers.map((page, index) =>
           typeof page === "number" ? (
-            <PaginationItem key={page}>
+            <PaginationItem key={page} className="rounded-full">
               <PaginationLink
                 href="#"
                 onClick={() => onPageChange(page)}
@@ -77,7 +78,7 @@ const CustomPagination = ({
               </PaginationLink>
             </PaginationItem>
           ) : (
-            <PaginationItem key={`ellipsis-${index}`}>
+            <PaginationItem key={`ellipsis-${index}`} className="rounded-full">
               <PaginationEllipsis />
             </PaginationItem>
           ),
