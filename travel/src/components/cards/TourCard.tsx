@@ -12,8 +12,20 @@ const TourCard = ({
   price: string;
 }) => {
   return (
-    <div className="col-span-1 mb-20">
-      <Image src={image} alt={title} className="w-full object-cover" />
+    <div className="col-span-1 mb-20 cursor-pointer overflow-hidden">
+      <div className="group relative h-full w-full">
+        <Image
+          src={image}
+          alt={title}
+          className="w-full object-cover duration-300 group-hover:scale-[1.7]"
+        />
+        <div className="absolute left-0 top-0 z-50 hidden h-[200%] w-full bg-white p-20 opacity-50 duration-300 group-hover:block">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim,
+          eligendi dicta consectetur voluptatem consequatur reprehenderit
+          voluptates. Ipsa tenetur explicabo, corrupti non id quos doloremque
+          molestias! Ipsam cum voluptatum molestias quam?
+        </div>
+      </div>
 
       <div className="p-4">
         <div className="mb-2 flex items-center">
