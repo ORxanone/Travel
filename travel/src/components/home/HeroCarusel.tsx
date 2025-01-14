@@ -19,7 +19,7 @@ const HeroCarusel = () => {
       className="mySwiper"
     >
       <SwiperSlide>
-        <div className="bg-blue-gradient-header flex min-h-[80vh] justify-between max-md:flex-col-reverse max-sm:pb-10 sm:min-h-[80vh]">
+        <div className="flex min-h-[80vh] justify-between max-md:flex-col-reverse max-sm:pb-10 sm:min-h-[80vh]">
           <Image
             src={imgPc}
             alt="Glassgroup"
@@ -31,7 +31,7 @@ const HeroCarusel = () => {
         </div>
       </SwiperSlide>
       <SwiperSlide>
-        <div className="bg-blue-gradient-header flex min-h-[80vh] justify-between max-md:flex-col-reverse max-sm:pb-10 sm:min-h-[80vh]">
+        <div className="flex min-h-[80vh] justify-between max-md:flex-col-reverse max-sm:pb-10 sm:min-h-[80vh]">
           <Image
             src={imgPc2}
             alt="Glassgroup"
@@ -43,7 +43,7 @@ const HeroCarusel = () => {
         </div>
       </SwiperSlide>
       <SwiperSlide>
-        <div className="bg-blue-gradient-header relative flex min-h-[80vh] justify-between max-md:flex-col-reverse max-sm:pb-10 sm:min-h-[80vh]">
+        <div className="relative flex min-h-[80vh] justify-between max-md:flex-col-reverse max-sm:pb-10 sm:min-h-[80vh]">
           <Image
             src={imgPc3}
             alt="Glassgroup"

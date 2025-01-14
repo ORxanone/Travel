@@ -11,7 +11,7 @@ export const navMenu = [
   },
   {
     label: "Tour",
-    href: "/#",
+    href: "/tours",
     children: [
       {
         label: "Econom Tour",
