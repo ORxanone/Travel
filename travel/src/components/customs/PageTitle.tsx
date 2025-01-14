@@ -15,7 +15,7 @@ const PageTitle = ({
         style={{
           filter: "contrast(50%)",
         }}
-        className="absolute left-0 top-0 z-[-1] h-full w-full bg-[url(public/tour-bg.jpg)] bg-cover"
+        className="absolute left-0 top-0 z-[-1] h-full w-full bg-[url(/tour-bg.jpg)] bg-cover"
       ></div>
       <h1 className="text-5xl font-bold">{title}</h1>
       <p className="text-xl font-medium">
