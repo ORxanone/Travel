@@ -1,9 +1,14 @@
-import React from 'react'
-import Details from '~/components/tours/details'
-const page = () => {
-  return (
-    <Details/>
-  )
-}
+import React from "react";
+import Details from "~/components/tours/details";
+// import dynamic from "next/dynamic";
 
-export default page
+// // Dynamically import the component with no SSR
+// const Details = dynamic(() => import("~/components/tours/details"), {
+//   ssr: false,
+// });
+
+const page = () => {
+  return <Details />;
+};
+
+export default page;

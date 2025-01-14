@@ -1,12 +1,12 @@
-import React from 'react'
+import React from "react";
 
-const BookingFormTitle = ({ basePrice }: { basePrice: number}) => {
-    return (
-        <div className="mb-6">
-            <span className="text-2xl font-bold">${basePrice}</span>
-            <span className="text-gray-500 text-sm"> / per person</span>
-        </div>
-    )
-}
+const BookingFormTitle = ({ basePrice }: { basePrice: number }) => {
+  return (
+    <div className="mb-6">
+      <span className="text-2xl font-bold">${basePrice}</span>
+      <span className="text-sm text-gray-500"> / per person</span>
+    </div>
+  );
+};
 
-export default BookingFormTitle
+export default BookingFormTitle;
