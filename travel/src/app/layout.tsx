@@ -6,6 +6,8 @@ import { GeistSans } from "geist/font/sans";
 import Header from "~/components/header";
 import Footer from "~/components/Footer/Tour";
 import { Provider } from "~/components/ui/provider";
+import { usePathname } from "next/navigation";
+
 // export const metadata: Metadata = {
 //   title: "Travel Pro",
 //   description: "Travel Pro",
@@ -15,6 +17,20 @@ import { Provider } from "~/components/ui/provider";
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const pathname = usePathname();
+  if (pathname.startsWith("/dashboard")) {
+    return (
+      <html
+        suppressHydrationWarning
+        lang="en"
+        className={`${GeistSans.variable}`}
+      >
+        <body>
+          <main>{children}</main>
+        </body>
+      </html>
+    );
+  }
   return (
     <html
       suppressHydrationWarning

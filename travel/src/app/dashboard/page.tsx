@@ -1,9 +1,15 @@
-import React from 'react'
+"use client";
+import dynamic from "next/dynamic";
+import { NextPage } from "next";
+const AdminApp = dynamic(() => import("./components/AdminApp"), {
+  ssr: false,
+});
 
-const Page = () => {
-  return (
-    <div>Page</div>
-  )
-}
+const Dashboard: NextPage = () => (
+    <AdminApp />
+  // <>
+  //  <h1>Page</h1>
+  // </>
+);
 
-export default Page
+export default Dashboard;
