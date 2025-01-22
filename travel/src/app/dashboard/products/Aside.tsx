@@ -1,94 +1,131 @@
-import React from "react";
-import { Box, CardBody, Heading, Input, VStack, Text } from "@chakra-ui/react";
-import { Card } from "@chakra-ui/react";
-import { DollarSign, BarChart3, Tag } from "lucide-react";
+import * as React from "react";
+import { Card, CardContent } from "@mui/material";
+import LocalOfferIcon from "@mui/icons-material/LocalOfferOutlined";
+import BarChartIcon from "@mui/icons-material/BarChart";
+import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
+import {
+  FilterList,
+  FilterListItem,
+  FilterLiveSearch,
+  SavedQueriesList,
+  useGetList,
+} from "react-admin";
 
-const FilterItem = ({ label, value }: { label: string; value: object }) => (
-  <Box
-    as="button"
-    w="full"
-    textAlign="left"
-    px={4}
-    py={2}
-    rounded="md"
-    _hover={{ bg: "gray.100" }}
-    _active={{ bg: "gray.200" }}
-  >
-    <Text>{label}</Text>
-  </Box>
-);
-
-const FilterList = ({
-  label,
-  icon,
-  children,
-}: {
-  label: string;
-  icon: React.ReactNode;
-  children: React.ReactNode;
-}) => (
-  <VStack align="stretch" spacing={3} mt={4}>
-    <Heading size="sm" display="flex" alignItems="center" gap={2}>
-      {icon} {label}
-    </Heading>
-    {children}
-  </VStack>
-);
+// import { Category } from '../types';
+import { humanize } from "inflection";
 
 const Aside = () => {
+  const { data } = useGetList("categories", {
+    pagination: { page: 1, perPage: 100 },
+    sort: { field: "name", order: "ASC" },
+  });
+
   return (
-    <Card.Root
-      display={{ base: "none", md: "block" }}
-      order={-1}
-      w="15em"
-      mr={4}
-      alignSelf="flex-start"
-      boxShadow="md"
+    <Card
+      sx={{
+        display: { xs: "none", md: "block" },
+        order: -1,
+        width: "15em",
+        mr: 2,
+        alignSelf: "flex-start",
+      }}
     >
-      <CardBody>
-        <Input
-          placeholder="Search..."
-          mb={4}
-          borderRadius="md"
-          size="sm"
-          borderColor="blue.400"
-        />
+      <CardContent sx={{ pt: 1 }}>
+        <FilterLiveSearch hiddenLabel />
 
-        {/* Sales Filters */}
-        <FilterList label="Sales Filters" icon={<DollarSign size={16} />}>
-          <FilterItem label="Best Sellers" value={{ sales_gt: 25 }} />
-          <FilterItem
-            label="Average Sellers"
-            value={{ sales_lte: 25, sales_gt: 10 }}
-          />
-          <FilterItem
-            label="Low Sellers"
-            value={{ sales_lte: 10, sales_gt: 0 }}
-          />
-          <FilterItem label="Never Sold" value={{ sales: 0 }} />
-        </FilterList>
+        <SavedQueriesList />
 
-        {/* Stock Filters */}
-        <FilterList label="Stock Filters" icon={<BarChart3 size={16} />}>
-          <FilterItem label="No Stock" value={{ stock: 0 }} />
-          <FilterItem label="Low Stock" value={{ stock_lt: 10, stock_gt: 0 }} />
-          <FilterItem
-            label="Average Stock"
-            value={{ stock_lt: 50, stock_gt: 9 }}
-          />
-          <FilterItem label="Enough Stock" value={{ stock_gt: 49 }} />
-        </FilterList>
-
-        {/* Categories Filters */}
         <FilterList
-          label="Categories"
-          icon={<Tag size={16} />}
-          children={undefined}
+          label="sales"
+          icon={<AttachMoneyIcon />}
         >
-          {/* Dinamik kateqoriyalar burada yer alacaq */}
+          <FilterListItem
+            label="best_sellers"
+            value={{
+              sales_lte: undefined,
+              sales_gt: 25,
+              sales: undefined,
+            }}
+          />
+          <FilterListItem
+            label="average_sellers"
+            value={{
+              sales_lte: 25,
+              sales_gt: 10,
+              sales: undefined,
+            }}
+          />
+          <FilterListItem
+            label="low_sellers"
+            value={{
+              sales_lte: 10,
+              sales_gt: 0,
+              sales: undefined,
+            }}
+          />
+          <FilterListItem
+            label="never_sold"
+            value={{
+              sales_lte: undefined,
+              sales_gt: undefined,
+              sales: 0,
+            }}
+          />
         </FilterList>
-      </CardBody>
-    </Card.Root>
+
+        <FilterList
+          label="stock"
+          icon={<BarChartIcon />}
+        >
+          <FilterListItem
+            label="no_stock"
+            value={{
+              stock_lt: undefined,
+              stock_gt: undefined,
+              stock: 0,
+            }}
+          />
+          <FilterListItem
+            label="low_stock"
+            value={{
+              stock_lt: 10,
+              stock_gt: 0,
+              stock: undefined,
+            }}
+          />
+          <FilterListItem
+            label="average_stock"
+            value={{
+              stock_lt: 50,
+              stock_gt: 9,
+              stock: undefined,
+            }}
+          />
+          <FilterListItem
+            label="enough_stock"
+            value={{
+              stock_lt: undefined,
+              stock_gt: 49,
+              stock: undefined,
+            }}
+          />
+        </FilterList>
+
+        <FilterList
+          label="categories"
+          icon={<LocalOfferIcon />}
+        >
+          {data &&
+            data.map((record: any) => (
+              <FilterListItem
+                label={humanize(record.name)}
+                key={record.id}
+                value={{ category_id: record.id }}
+              />
+            ))}
+        </FilterList>
+      </CardContent>
+    </Card>
   );
 };
 

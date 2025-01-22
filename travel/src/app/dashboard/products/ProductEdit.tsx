@@ -56,7 +56,7 @@ const ProductEdit = () => (
     <Edit title={<ProductTitle />}>
         <TabbedForm>
             <TabbedForm.Tab
-                label="resources.products.tabs.image"
+                label="Image"
                 sx={{ maxWidth: '40em', minHeight: 48 }}
                 iconPosition="start"
                 icon={<PhotoCameraIcon />}
@@ -66,7 +66,7 @@ const ProductEdit = () => (
                 <TextInput source="thumbnail" validate={req} />
             </TabbedForm.Tab>
             <TabbedForm.Tab
-                label="resources.products.tabs.details"
+                label="Details"
                 path="details"
                 sx={{ maxWidth: '40em', minHeight: 48 }}
                 iconPosition="start"
@@ -75,7 +75,7 @@ const ProductEdit = () => (
                 <ProductEditDetails />
             </TabbedForm.Tab>
             <TabbedForm.Tab
-                label="resources.products.tabs.description"
+                label="Description"
                 path="description"
                 sx={{ maxWidth: '40em', minHeight: 48 }}
                 iconPosition="start"
@@ -84,22 +84,22 @@ const ProductEdit = () => (
                 <RichTextInput source="description" label="" validate={req} />
             </TabbedForm.Tab>
             <TabbedForm.Tab
-                label="resources.products.tabs.reviews"
+                label="Reviews"
                 count={
                     <ReferenceManyCount
-                        reference="reviews"
-                        target="product_id"
+                        reference="comments"
+                        target="post"
                         sx={{ lineHeight: 'inherit' }}
                     />
                 }
-                path="reviews"
+                path="comments"
                 sx={{ minHeight: 48 }}
                 iconPosition="start"
                 icon={<ReviewIcon />}
             >
                 <ReferenceManyField
-                    reference="reviews"
-                    target="product_id"
+                    reference="comments"
+                    target="post"
                     pagination={<Pagination />}
                 >
                     <Datagrid

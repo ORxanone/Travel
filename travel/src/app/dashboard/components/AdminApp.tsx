@@ -6,22 +6,21 @@ import {
   EditGuesser,
   localStorageStore,
 } from "react-admin";
-import jsonServerProvider from "ra-data-json-server";
 import authProvider from "../authProviders";
-import Login from "./layout/Login";
-import Layout from "./layout/Layout";
 import products from "../products";
+import customDataProvider from "../dataFetching/customDataProvider" 
 
-const dataProvider = jsonServerProvider("https://jsonplaceholder.typicode.com");
+import simpleRestProvider from 'ra-data-simple-rest';
+
+// const dataProvider = jsonServerProvider("https://dummyjson.com");
+// const dataProvider = simpleRestProvider('https://dummyjson.com');
 
 const store = localStorageStore(undefined, "ECommerce");
 
 const AdminApp = () => (
   <Admin
-    dataProvider={dataProvider}
+    dataProvider={customDataProvider}
     authProvider={authProvider}
-    // loginPage={Login}
-    // layout={Layout}
     store={store}
   >
     <Resource

@@ -30,21 +30,21 @@ const ProductCreate = () => (
     <Create title={<ProductTitle />}>
         <TabbedForm defaultValues={{ sales: 0 }}>
             <TabbedForm.Tab
-                label="resources.products.tabs.image"
+                label="Image"
                 sx={{ maxWidth: '40em' }}
             >
                 <TextInput autoFocus source="image" validate={required()} />
                 <TextInput source="thumbnail" validate={required()} />
             </TabbedForm.Tab>
             <TabbedForm.Tab
-                label="resources.products.tabs.details"
+                label="Details"
                 path="details"
                 sx={{ maxWidth: '40em' }}
             >
                 <ProductEditDetails />
             </TabbedForm.Tab>
             <TabbedForm.Tab
-                label="resources.products.tabs.description"
+                label="Description"
                 path="description"
             >
                 <RichTextInput source="description" label="" />
