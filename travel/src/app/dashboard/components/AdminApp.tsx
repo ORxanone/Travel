@@ -8,21 +8,22 @@ import {
 } from "react-admin";
 import authProvider from "../authProviders";
 import products from "../products";
-import customDataProvider from "../dataFetching/customDataProvider" 
+import customDataProvider from "../dataFetching/customDataProvider";
+import jsonServerProvider from "ra-data-json-server";
 
-import simpleRestProvider from 'ra-data-simple-rest';
+// const dataProvider = jsonServerProvider(
+//   process.env.VITE_JSON_SERVER_URL,
+// );
 
-// const dataProvider = jsonServerProvider("https://dummyjson.com");
-// const dataProvider = simpleRestProvider('https://dummyjson.com');
+import simpleRestProvider from "ra-data-simple-rest";
+
+const dataProvider = jsonServerProvider("https://jsonplaceholder.typicode.com");
+// const dataProvider = simpleRestProvider("https://jsonplaceholder.typicode.com");
 
 const store = localStorageStore(undefined, "ECommerce");
 
 const AdminApp = () => (
-  <Admin
-    dataProvider={customDataProvider}
-    authProvider={authProvider}
-    store={store}
-  >
+  <Admin dataProvider={dataProvider} authProvider={authProvider} store={store}>
     <Resource
       name="users"
       list={ListGuesser}
